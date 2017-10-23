@@ -15,27 +15,7 @@ import { Recipe } from '../recipe.model';
             New Recipe
         </a>
     </div>
-
-    <div class="ui red card" *ngFor="let recipe of recipes">
-        <div class="image">
-            <img alt="{{ recipe.name }}"
-                [src]="recipe.imageUrl">
-        </div>
-        <div class="content">
-            <h3 class="header">{{ recipe.name }}</h3>
-            <div class="meta">
-                <span class="category">Category</span>
-            </div>
-            <div class="description">
-                {{ recipe.description }}
-            </div>
-        </div>
-      <div class="extra content">
-        Some extra content or button/icon later
-      </div>
-    </div>
-
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
   `,
   styleUrls: ['./recipe-list.component.scss']
 })
