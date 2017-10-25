@@ -1,10 +1,11 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-detail',
   template: `
-    <img class="image" alt="" [src]="">
-    <h2 class="ui header">Recipe Name</h2>
+    <img class="ui medium image" alt="" [src]="recipe.imageUrl">
+    <h2 class="ui header">{{ recipe.name }}</h2>
     <div class="ui simple dropdown item">
         Manage
         <i class="dropdown icon"></i>
@@ -28,7 +29,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
     <p class="ui header">Description</p>
     <div class="ui list">
         <div class="item">
-            Ingredient
+            {{ recipe.description }}
         </div>
     </div>
 
@@ -36,7 +37,8 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   styleUrls: ['./recipe-detail.component.scss']
 })
 export class RecipeDetailComponent implements OnInit {
-
+  @Input() recipe: Recipe;
+  
   constructor() { }
 
   ngOnInit() {
