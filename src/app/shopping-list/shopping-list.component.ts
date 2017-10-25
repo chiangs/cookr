@@ -5,9 +5,9 @@ import { Ingredient } from '../shared/ingredient.model';
   selector: 'app-shopping-list',
   template: `
     <div class="thirteen wide column">
-      <app-shopping-edit></app-shopping-edit>
+      <app-shopping-edit (addIngredient)="onAddNewIngredient($event)"></app-shopping-edit>
       <hr>
-      <div class="ui list" >
+      <div class="ui middle aligned animated very relaxed list" >
           <a href="#" class="item" *ngFor="let ingredient of ingredients">
               {{ ingredient.name }} ({{ ingredient.amount }})
           </a>
@@ -25,6 +25,11 @@ export class ShoppingListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onAddNewIngredient(ingredient: Ingredient) {
+      console.log(ingredient);
+      this.ingredients.push(ingredient);
   }
 
 }

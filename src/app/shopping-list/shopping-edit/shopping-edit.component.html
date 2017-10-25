@@ -3,14 +3,14 @@
   <div class="two fields">
     <div class="ten wide field">
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" class="">
+      <input class="ui input" type="text" name="name" id="name" #nameInput>
     </div>
     <div class="four wide field">
       <label for="amount">Amount</label>
-      <input type="number" name="amount" id="amount">
+      <input class="ui input" type="number" name="amount" id="amount" #amountInput>
     </div>
   </div>
-  <button type="submit" name="button" class="ui green basic labeled icon button"><i class="add icon"></i>Add</button>
+  <button type="button" name="button" class="ui green basic labeled icon button" (click)="addNewIngredient(nameInput, amountInput)"><i class="add icon"></i>Add</button>
   <button type="button" name="button" class="ui orange basic labeled icon button"><i class="edit icon"></i>Edit</button>
   <button type="button" name="button" class="ui red basic labeled icon button"><i class="undo icon"></i>Clear</button>
 </form>

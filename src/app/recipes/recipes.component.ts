@@ -15,7 +15,7 @@ import { Recipe } from './recipe.model';
             [recipe]="selectedRecipe">
           </app-recipe-detail>
           <ng-template #noRecipeSelectedText>
-            <h3 class="ui header"><i class="ui tiny left arrow icon"></i>Select a recipe on the left to begin</h3>
+            <h3 class="ui header"><i class="ui left arrow icon"></i>Select a recipe on the left to begin</h3>
           </ng-template>
       </div>
   `,
