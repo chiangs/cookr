@@ -7,7 +7,7 @@ import { Ingredient } from '../shared/ingredient.model';
     <div class="thirteen wide column">
       <app-shopping-edit (addIngredient)="onAddNewIngredient($event)"></app-shopping-edit>
       <hr>
-      <div class="ui middle aligned animated very relaxed list" >
+      <div class="ui big middle aligned animated very relaxed list" >
           <a href="#" class="item" *ngFor="let ingredient of ingredients">
               {{ ingredient.name }} ({{ ingredient.amount }})
           </a>

@@ -10,10 +10,10 @@ import { Component, OnInit, HostBinding, EventEmitter, Output } from '@angular/c
         <div class="right menu">
             <a class="item" href="#" (click)="selectComponent('recipes')"><i class="ui book icon"></i>Recipes</a>
             <a class="item" href="#" (click)="selectComponent('shopping-list')"><i class="ui add shopping basket icon"></i>Shopping List</a>
-            <div class="ui simple dropdown item">
+            <div class="ui pointing dropdown item" appDropdown #dropRef>
                 Manage
                 <i class="dropdown icon"></i>
-                <div class="menu">
+                <div class="menu transition" [class.visible]="dropRef.classList.contains('visible')">
                     <a class="item" href="#"><i class="ui star icon"></i>Save Data</a>
                     <a class="item" href="#"><i class="ui check circle icon"></i>Fetch Data</a>
                 </div>
