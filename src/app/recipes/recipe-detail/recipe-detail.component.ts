@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -32,16 +33,24 @@ import { Recipe } from '../recipe.model';
             {{ recipe.description }}
         </div>
     </div>
+    <div class="ui two column internally celled grid container">
+        <div class="row" *ngFor="let item of recipe.ingredients">
+            <div class="two wide right aligned column">
+                {{ item.amount }}
+            </div>
+            <div class="seven wide left aligned column">
+                {{ item.name }}
+            </div>
+        </div>
+    </div>
 
   `,
   styleUrls: ['./recipe-detail.component.scss']
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
-  
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
   }
-
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, HostListener } from '@angular/core';
 import { Recipe } from '../../recipe.model';
+import { RecipeService } from '../../../services/recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -27,10 +28,12 @@ import { Recipe } from '../../recipe.model';
 export class RecipeItemComponent implements OnInit {
     @Input() recipe: Recipe;
     @HostBinding('attr.class') contClass = 'ui red card';
+    @HostListener('click') onSelected() {
+        this.recipeService.recipeSelected.emit(this.recipe)
+    };
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
   }
-
 }

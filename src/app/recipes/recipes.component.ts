@@ -1,13 +1,12 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Recipe } from './recipe.model';
+import { RecipeService } from '../services/recipe.service';
 
 @Component({
   selector: 'app-recipes',
   template: `
       <div class="six wide column">
-          <app-recipe-list
-            (onRecipeSelect)="recipeWasSelected($event)">
-          </app-recipe-list>
+          <app-recipe-list></app-recipe-list>
       </div>
       <div class="ten wide column">
           <app-recipe-detail
@@ -19,19 +18,18 @@ import { Recipe } from './recipe.model';
           </ng-template>
       </div>
   `,
-  styleUrls: ['./recipes.component.scss']
+  styleUrls: ['./recipes.component.scss'],
+  providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
   @HostBinding('attr.class') containerClass = 'ui phone stackable two column grid';
   selectedRecipe: Recipe;
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+      this.recipeService.recipeSelected.subscribe((recipe:Recipe) => this.selectedRecipe = recipe);
   }
 
-  recipeWasSelected(recipe: Recipe): void {
-    this.selectedRecipe = recipe;
-  }
 
 }

@@ -10,7 +10,7 @@ import { Component, OnInit, HostBinding, EventEmitter, Output } from '@angular/c
         <div class="right menu">
             <a class="item" href="#" (click)="selectComponent('recipes')"><i class="ui book icon"></i>Recipes</a>
             <a class="item" href="#" (click)="selectComponent('shopping-list')"><i class="ui add shopping basket icon"></i>Shopping List</a>
-            <div class="ui pointing dropdown item" appDropdown #dropRef>
+            <div class="ui item pointing dropdown" appDropdown #dropRef>
                 Manage
                 <i class="dropdown icon"></i>
                 <div class="menu transition" [class.visible]="dropRef.classList.contains('visible')">
