@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { Recipe } from '../recipe.model';
-import { RecipeService } from '../../services/recipe.service';
+import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingListService } from '../../services/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -11,7 +12,7 @@ import { RecipeService } from '../../services/recipe.service';
         Manage
         <i class="dropdown icon"></i>
         <div class="menu">
-            <a class="item" href="#">
+            <a class="item" (click)="sendToShopList(recipe.ingredients)">
                 <i class="icons">
                     <i class="ui shopping basket icon"></i>
                     <i class="ui top right corner add icon"></i>
@@ -49,7 +50,16 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
-  constructor(private recipeService: RecipeService) { }
+
+  constructor(private slService: ShoppingListService) { }
+
+  sendToShopList(ingredients: Ingredient[]) {
+    //   for ( let ingredient of ingredients ) {
+    //       this.slService.addNewIngredient(ingredient);
+    //   }
+    //   above method would emit each single time.
+    this.slService.addIngredientsFromRecipe(ingredients);
+  }
 
   ngOnInit() {
   }

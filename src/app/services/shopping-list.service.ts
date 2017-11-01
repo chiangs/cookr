@@ -3,7 +3,7 @@ import { Ingredient } from '../shared/ingredient.model';
 
 @Injectable()
 export class ShoppingListService {
-  IngredientAdded = new EventEmitter<Ingredient[]>();
+  ingredientAdded = new EventEmitter<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
@@ -19,7 +19,13 @@ export class ShoppingListService {
 
   addNewIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
-    this.IngredientAdded.emit(this.ingredients.slice()); // this emits the new updated copy of array.
+    this.ingredientAdded.emit(this.ingredients.slice()); // this emits the new updated copy of array.
+  }
+
+  addIngredientsFromRecipe(ingredients: Ingredient[]) {
+      this.ingredients.push(...ingredients);
+      // ES6 spread operator that turns array into list before pushing.
+      this.ingredientAdded.emit(this.ingredients.slice());
   }
 
   constructor() { }
