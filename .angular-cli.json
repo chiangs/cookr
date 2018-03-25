@@ -7,10 +7,7 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
+      "assets": ["assets", "favicon.ico"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -18,13 +15,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "../semantic/dist/semantic.min.css",
-        "styles.scss"
-      ],
-      "scripts": [
-        "../semantic/dist/semantic.min.js"
-      ],
+      "styles": ["../semantic/dist/semantic.min.css", "styles.scss"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
